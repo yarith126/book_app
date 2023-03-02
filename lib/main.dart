@@ -1,47 +1,50 @@
-import 'package:book_app/screens/sign_in_screen.dart';
-import 'package:book_app/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'screens/home_screen.dart';
+import 'screens/splash_screen.dart';
 
 void main() => runApp(const MyApp());
-
-final GoRouter _router = GoRouter(
-  routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const HomeScreen(),
-    ),
-    GoRoute(
-      path: '/auth',
-      builder: (context, state) => const WelcomeScreen(),
-      routes: [
-        GoRoute(
-          path: 'login',
-          builder: (context, state) => const SignInScreen(),
-        ),
-      ],
-    ),
-  ],
-);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-// This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        useMaterial3: true,
         textTheme: GoogleFonts.ralewayTextTheme(),
+        pageTransitionsTheme: PageTransitionsTheme(builders: {
+          // TargetPlatform.android: OpenUpwardsPageTransitionsBuilder(),
+          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        }),
+      ),
+      darkTheme: ThemeData.dark(
         useMaterial3: true,
       ),
-      darkTheme: ThemeData.dark(useMaterial3: true),
-      themeMode: ThemeMode.system,
-      routerConfig: _router,
-// home: const SplashScreen(),
+      // themeMode: ThemeMode.system,
+      // onGenerateInitialRoutes: (route) {
+      //   // if (route == '/deeplink') {
+      //   //   return ?;
+      //   // }
+      //   debugPrint('\x1B[95m ${route} \x1B[0m');
+      //   if (route == '/') {
+      //     return [
+      //       MaterialPageRoute(builder: (_) => SplashScreen()),
+      //       MaterialPageRoute(builder: (_) => HomeScreen()),
+      //     ];
+      //   }
+      //   return [MaterialPageRoute(builder: (_) => HomeScreen())]; //unknown
+      // },
+      // onGenerateRoute: (settings) {
+      //   debugPrint('\x1B[95m ${settings.name} \x1B[0m');
+      //   if (settings.name == '/login') {
+      //     return CupertinoPageRoute(builder: (ctx) => HomeScreen());
+      //   }
+      //   return MaterialPageRoute(builder: (ctx) => HomeScreen());
+      // },
+      // onUnknownRoute: (_) {},
+      home: const SplashScreen(),
     );
   }
 }

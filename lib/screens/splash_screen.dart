@@ -1,15 +1,17 @@
-import 'package:book_app/screens/sign_in_screen.dart';
+import 'package:book_app/helper/route_helper.dart';
+import 'package:book_app/screens/home/home_screen.dart';
+import 'package:book_app/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'welcome_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
+class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
   late AnimationController _conScale;
   late AnimationController _conFade;
@@ -34,12 +36,7 @@ class _HomeScreenState extends State<HomeScreen>
 
     Future.delayed(const Duration(seconds: 3)).then((_) {
       if (!isSignedIn) {
-        Navigator.push(
-          context,
-          PageRouteBuilder(
-              pageBuilder: (context, anim1, anim2) => const WelcomeScreen(),
-              transitionsBuilder: (context, anim1, anim2, child) => child),
-        );
+        HRoute.push(context, '/welcome');
       } else {
         _conScale.forward();
         Future.delayed(const Duration(milliseconds: 200)).then((_) {
@@ -55,8 +52,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const SignInScreen(),
-        // HomeScreen
+        const HomeScreen(),
         isLoaded
             ? FadeTransition(
                 opacity: _animFade,
@@ -73,8 +69,7 @@ class _HomeScreenState extends State<HomeScreen>
                   ),
                   child: ScaleTransition(
                     scale: _animScale,
-                    child: Image.asset(
-                        height: 120, 'assets/images/logo.gif'),
+                    child: Image.asset(height: 120, 'assets/images/logo.gif'),
                   ),
                 ),
               )
