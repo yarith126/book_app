@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     Future.delayed(const Duration(seconds: 3)).then((_) {
       if (!isSignedIn) {
-        HRoute.push(context, '/welcome');
+        HRoute.go(context, '/welcome', TransitionType.none);
       } else {
         _conScale.forward();
         Future.delayed(const Duration(milliseconds: 200)).then((_) {

@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         textTheme: GoogleFonts.ralewayTextTheme(),
-        pageTransitionsTheme: PageTransitionsTheme(builders: {
-          // TargetPlatform.android: OpenUpwardsPageTransitionsBuilder(),
-          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-        }),
+        // pageTransitionsTheme: PageTransitionsTheme(builders: {
+          // TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+          // TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        // }),
       ),
       darkTheme: ThemeData.dark(
         useMaterial3: true,
@@ -48,3 +48,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
