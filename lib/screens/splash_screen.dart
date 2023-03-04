@@ -64,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen>
                       begin: Alignment.topCenter,
                       end: Alignment.bottomRight,
                       stops: [0.2, 0.9],
-                      colors: [Colors.blue, Colors.lightBlueAccent],
+                      colors: [Colors.green, Colors.lightGreen],
                     ),
                   ),
                   child: ScaleTransition(

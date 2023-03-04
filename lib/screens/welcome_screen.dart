@@ -37,7 +37,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             begin: Alignment.topCenter,
             end: Alignment.bottomRight,
             stops: [0.2, 0.9],
-            colors: [Colors.blue, Colors.lightBlueAccent],
+            colors: [Colors.green, Colors.lightGreen],
           ),
         ),
         child: Stack(
@@ -77,7 +77,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                       child: const Text(
                         'Login',
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.green,
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
@@ -222,7 +222,8 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
     var startTime = const Duration(milliseconds: 50);
     var gapTime = startTime + const Duration(milliseconds: 20);
-    Future.delayed(Duration.zero).then((_) => setState(() => isInit = true));
+    Future.delayed(startTime + (gapTime * 2.5))
+        .then((_) => setState(() => isInit = true));
     Future.delayed(startTime + (gapTime * 0)).then((_) => _con8.forward());
     Future.delayed(startTime + (gapTime * 1)).then((_) => _con7.forward());
     Future.delayed(startTime + (gapTime * 2)).then((_) => _con6.forward());
