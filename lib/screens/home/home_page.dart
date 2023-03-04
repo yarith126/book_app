@@ -7,15 +7,15 @@ import 'dart:math' as math;
 const Color mainColor = Color(0xFF19de9b);
 const double mainPadding = 21;
 const List<String> carouselImageUrls = [
-  'assets/images/home/cover1.png',
-  'assets/images/home/cover2.png',
-  'assets/images/home/cover3.jpg',
-  'assets/images/home/cover4.png',
+  'assets/home/cover1.png',
+  'assets/home/cover2.png',
+  'assets/home/cover3.jpg',
+  'assets/home/cover4.png',
 ];
-const String imgUrlCover1 = 'assets/images/home/cover4.png';
-const String imgUrlLogo = 'assets/images/home/logo.png';
-const String imgUrlType1 = 'assets/images/home/type1.png';
-const String imgUrlType2 = 'assets/images/home/type2.png';
+const String imgUrlCover1 = 'assets/home/cover4.png';
+const String imgUrlLogo = 'assets/home/logo_400.png';
+const String imgUrlType1 = 'assets/home/type1.png';
+const String imgUrlType2 = 'assets/home/type2.png';
 
 // ListViewBox isn't a listview?
 class HomePage extends StatelessWidget {

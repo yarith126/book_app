@@ -143,7 +143,7 @@ class _Wrapper extends StatelessWidget {
       child: Stack(
         children: [
           Container(color: const Color(0xfff5fde8)),
-          Image.asset('assets/images/background/bg_1.png'),
+          Image.asset('assets/background/bg_1.png'),
           SafeArea(
             child: Scaffold(
               resizeToAvoidBottomInset: false,

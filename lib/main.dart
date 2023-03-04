@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'screens/splash_screen.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,8 +20,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.ralewayTextTheme(),
         // pageTransitionsTheme: PageTransitionsTheme(builders: {
-          // TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-          // TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        // TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+        // TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
         // }),
       ),
       darkTheme: ThemeData.dark(
@@ -48,4 +53,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

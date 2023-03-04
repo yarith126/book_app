@@ -27,6 +27,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
   @override
   Widget build(BuildContext context) {
+    double paddingTop = MediaQuery.of(context).padding.top;
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -43,154 +44,157 @@ class _WelcomeScreenState extends State<WelcomeScreen>
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Column(
-              children: [
-                SizedBox(height: screenHeight * 0.15),
-                const SizedBox(height: 95), // reserved for image
-                const SizedBox(height: 15),
-                _FadeScaleTransition(
-                  controller: _con1,
-                  child: const Text(
-                    "Welcome",
-                    style: TextStyle(
-                      fontSize: 25,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+            SafeArea(
+              child: Column(
+                children: [
+                  SizedBox(height: screenHeight * 0.12 - paddingTop),
+                  const SizedBox(height: 95), // reserved for image
+                  const SizedBox(height: 15),
+                  _FadeScaleTransition(
+                    controller: _con1,
+                    child: const Text(
+                      "Welcome",
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 40),
-                _FadeScaleTransition(
-                  controller: _con2,
-                  child: Container(
-                    width: screenWidth * 0.7,
-                    constraints: const BoxConstraints(maxWidth: 440),
-                    child: ElevatedButton(
-                      onPressed: () => HRoute.push(context, '/login'),
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 18),
-                        shadowColor: Colors.transparent,
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
-                      ),
-                      child: const Text(
-                        'Login',
-                        style: TextStyle(
-                          color: Colors.green,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                  const SizedBox(height: 40),
+                  _FadeScaleTransition(
+                    controller: _con2,
+                    child: Container(
+                      width: screenWidth * 0.7,
+                      constraints: const BoxConstraints(maxWidth: 440),
+                      child: ElevatedButton(
+                        onPressed: () => HRoute.push(context, '/login'),
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 18),
+                          shadowColor: Colors.transparent,
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                        ),
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(
+                            color: Colors.green,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 15),
-                _FadeScaleTransition(
-                  controller: _con3,
-                  child: Container(
-                    width: screenWidth * 0.7,
-                    constraints: const BoxConstraints(maxWidth: 440),
-                    child: ElevatedButton(
-                      onPressed: () => {},
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 13),
-                        backgroundColor: Colors.transparent,
-                        shadowColor: Colors.transparent,
-                        side: const BorderSide(color: Colors.white),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(3)),
-                      ),
-                      child: const Text(
-                        'Sign Up',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                  const SizedBox(height: 15),
+                  _FadeScaleTransition(
+                    controller: _con3,
+                    child: Container(
+                      width: screenWidth * 0.7,
+                      constraints: const BoxConstraints(maxWidth: 440),
+                      child: ElevatedButton(
+                        onPressed: () => {},
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 13),
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                          side: const BorderSide(color: Colors.white),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(3)),
+                        ),
+                        child: const Text(
+                          'Sign Up',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 13),
-                _FadeScaleTransition(
-                  controller: _con4,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const SizedBox(
-                        width: 100,
-                        child: Divider(color: Colors.white),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(20),
-                        child: const Text('or',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      const SizedBox(
-                        width: 100,
-                        child: Divider(color: Colors.white),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 13),
-                _FadeScaleTransition(
-                  controller: _con5,
-                  child: const ButtonBrand(
-                    iconData: FontAwesomeIcons.apple,
-                    title: 'Continue with Apple',
-                    color: Colors.black,
-                  ),
-                ),
-                _FadeScaleTransition(
-                  controller: _con6,
-                  child: const ButtonBrand(
-                    iconData: FontAwesomeIcons.facebook,
-                    title: 'Continue with Facebook',
-                    color: Color(0xff3b59b8),
-                  ),
-                ),
-                _FadeScaleTransition(
-                  controller: _con7,
-                  child: const ButtonBrand(
-                    imagePath: 'assets/images/icon_google.png',
-                    title: 'Continue with Google',
-                    color: Color(0xffc01202),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                _FadeScaleTransition(
-                  controller: _con8,
-                  child: InkWell(
-                    onTap: () => HRoute.go(context, '/home'),
+                  const SizedBox(height: 13),
+                  _FadeScaleTransition(
+                    controller: _con4,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: const [
-                        SizedBox(width: 16),
-                        Text(
-                          'Skip',
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                      children: [
+                        const SizedBox(
+                          width: 100,
+                          child: Divider(color: Colors.white),
                         ),
-                        Icon(Icons.arrow_right, color: Colors.white),
+                        Container(
+                          margin: const EdgeInsets.all(20),
+                          child: const Text('or',
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                        const SizedBox(
+                          width: 100,
+                          child: Divider(color: Colors.white),
+                        ),
                       ],
                     ),
                   ),
-                ),
-              ],
+                  const SizedBox(height: 13),
+                  _FadeScaleTransition(
+                    controller: _con5,
+                    child: const ButtonBrand(
+                      iconData: FontAwesomeIcons.apple,
+                      title: 'Continue with Apple',
+                      color: Colors.black,
+                    ),
+                  ),
+                  _FadeScaleTransition(
+                    controller: _con6,
+                    child: const ButtonBrand(
+                      iconData: FontAwesomeIcons.facebook,
+                      title: 'Continue with Facebook',
+                      color: Color(0xff3b59b8),
+                    ),
+                  ),
+                  _FadeScaleTransition(
+                    controller: _con7,
+                    child: const ButtonBrand(
+                      imagePath: 'assets/icon_google.png',
+                      title: 'Continue with Google',
+                      color: Color(0xffc01202),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  _FadeScaleTransition(
+                    controller: _con8,
+                    child: InkWell(
+                      onTap: () => HRoute.go(context, '/home'),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: const [
+                          SizedBox(width: 16),
+                          Text(
+                            'Skip',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Icon(Icons.arrow_right, color: Colors.white),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             AnimatedPositioned(
-              top: !isInit ? screenHeight * 0.5 - 60 : screenHeight * 0.15,
-              height: !isInit ? 120 : 95,
+              top: !isInit ? screenHeight * 0.5 - 115 / 2 : screenHeight * 0.12,
+              height: !isInit ? 115 : 95,
               curve: Curves.fastOutSlowIn,
               duration: const Duration(milliseconds: 1000),
-              child: Image.asset('assets/images/logo.gif'),
+              child: Image.asset('assets/logo_400.gif'),
             ),
             //debug
             Positioned(
-              bottom: 0,
+              bottom: 30,
               right: 0,
               child: Row(
                 children: [

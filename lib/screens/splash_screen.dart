@@ -2,6 +2,7 @@ import 'package:book_app/helper/route_helper.dart';
 import 'package:book_app/screens/home/home_screen.dart';
 import 'package:book_app/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'welcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -33,6 +34,9 @@ class _SplashScreenState extends State<SplashScreen>
     _animFade = Tween<double>(begin: 1, end: 0).animate(
       CurvedAnimation(parent: _conFade, curve: Curves.easeOut),
     );
+    Future.delayed(const Duration(milliseconds: 100)).then((_) {
+      return FlutterNativeSplash.remove();
+    });
 
     Future.delayed(const Duration(seconds: 3)).then((_) {
       if (!isSignedIn) {
@@ -56,20 +60,21 @@ class _SplashScreenState extends State<SplashScreen>
         isLoaded
             ? FadeTransition(
                 opacity: _animFade,
-                child: Container(
+                child: AnimatedContainer(
+                  duration: const Duration(seconds: 1),
                   alignment: Alignment.center,
                   width: double.maxFinite,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomRight,
-                      stops: [0.2, 0.9],
+                      stops: [1.0, 0.0],
                       colors: [Colors.green, Colors.lightGreen],
                     ),
                   ),
                   child: ScaleTransition(
                     scale: _animScale,
-                    child: Image.asset(height: 120, 'assets/images/logo.gif'),
+                    child: Image.asset(height: 115, 'assets/logo_400.gif'),
                   ),
                 ),
               )
