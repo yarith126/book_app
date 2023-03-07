@@ -1,5 +1,6 @@
-import 'package:book_app/helper/route_helper.dart';
+import 'package:book_app/utils/route_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -49,31 +50,41 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     children: [
                       Container(
-                        padding: const EdgeInsets.all(13),
+                        padding: const EdgeInsets.all(8),
+                        // margin: const EdgeInsets.all(13),
                         decoration: BoxDecoration(
                           border: Border(
                             bottom: BorderSide(color: Colors.green.shade100),
                           ),
                         ),
                         child: TextField(
+                          cursorColor: Colors.green,
                           decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Email or Phone number or Username',
-                            hintStyle: TextStyle(
-                                color: Colors.grey.shade600, fontSize: 14),
+                            labelText: "Email or Phone Number or Username",
+                            labelStyle: TextStyle(fontSize: 15),
+                            fillColor: Colors.red,
+                            // label: Text("Email or Phone Number or Username", style: TextStyle(color: Colors.grey, fontSize: 15)),
+                            contentPadding: EdgeInsets.symmetric(vertical: 5),
+
+                            // hintText: 'Email or Phone number or Username',
+                            // hintStyle: TextStyle(
+                            //     color: Colors.grey.shade600, fontSize: 14),
                           ),
                         ),
                       ),
                       Container(
-                        padding: const EdgeInsets.all(13),
+                        padding: const EdgeInsets.all(8),
                         child: TextField(
                           decoration: InputDecoration(
+                            labelText: "Password",
                             border: InputBorder.none,
-                            hintText: 'Password',
-                            hintStyle: TextStyle(
-                              color: Colors.grey.shade600,
-                              fontSize: 14,
-                            ),
+                            contentPadding: EdgeInsets.symmetric(vertical: 5),
+                            // hintText: 'Password',
+                            // hintStyle: TextStyle(
+                            //   color: Colors.grey.shade600,
+                            //   fontSize: 14,
+                            // ),sdfasdf
                           ),
                         ),
                       ),
@@ -81,9 +92,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 25),
-                Text(
-                  'Forgot password?',
-                  style: TextStyle(color: Colors.grey.shade800),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Forgot password?',
+                    style: TextStyle(color: Colors.grey.shade800),
+                  ),
                 ),
               ],
             ),

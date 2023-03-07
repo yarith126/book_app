@@ -28,29 +28,32 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(_screen[_selectedScreenIndex]["title"]),
-      // ),
-      body: _screen[_selectedScreenIndex]["screen"],
-      bottomNavigationBar: SizedBox(
-        height: 90,
-        child: BottomNavigationBar(
-          backgroundColor: Colors.white,
-          unselectedItemColor: Colors.grey,
-          unselectedFontSize: 16,
-          selectedFontSize: 16,
-          selectedItemColor: mainColor,
-          currentIndex: _selectedScreenIndex,
-          onTap: _selectScreen,
-          items: [
-            BottomNavigationBarItem(
-                icon: const Icon(Icons.home), label: _screen[0]["title"]),
-            BottomNavigationBarItem(
-                icon: const Icon(Icons.store), label: _screen[1]["title"]),
-            BottomNavigationBarItem(
-                icon: const Icon(Icons.person), label: _screen[2]["title"]),
-          ],
+    return Container(
+      color: Colors.white,
+      // padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
+      child: SafeArea(
+        child: Scaffold(
+          body: _screen[_selectedScreenIndex]["screen"],
+          bottomNavigationBar: Container(
+            height: 90,
+            child: BottomNavigationBar(
+              backgroundColor: Colors.white,
+              unselectedItemColor: Colors.grey,
+              unselectedFontSize: 16,
+              selectedFontSize: 16,
+              selectedItemColor: mainColor,
+              currentIndex: _selectedScreenIndex,
+              onTap: _selectScreen,
+              items: [
+                BottomNavigationBarItem(
+                    icon: const Icon(Icons.home), label: _screen[0]["title"]),
+                BottomNavigationBarItem(
+                    icon: const Icon(Icons.store), label: _screen[1]["title"]),
+                BottomNavigationBarItem(
+                    icon: const Icon(Icons.person), label: _screen[2]["title"]),
+              ],
+            ),
+          ),
         ),
       ),
     );

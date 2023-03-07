@@ -1,4 +1,4 @@
-# bok_app
+# book_app
 
 A new Flutter project.
 
