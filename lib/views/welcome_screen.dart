@@ -1,5 +1,7 @@
 import 'package:book_app/global_variables.dart';
 import 'package:book_app/utils/route_helper.dart';
+import 'package:book_app/views/home/home_screen.dart';
+import 'package:book_app/views/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -29,7 +31,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   @override
   Widget build(BuildContext context) {
     double paddingTop = MediaQuery.of(context).padding.top;
-    double paddingBottom = MediaQuery.of(context).padding.top;
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -74,7 +75,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                         width: screenWidth * 0.7,
                         constraints: const BoxConstraints(maxWidth: 440),
                         child: ElevatedButton(
-                          onPressed: () => HRoute.push(context, '/login'),
+                          onPressed: () => Go.to(const LoginScreen()),
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(vertical: 18),
                             backgroundColor: Colors.white,
@@ -109,8 +110,8 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                             side: const BorderSide(color: Colors.white),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(3)),
-                        ).copyWith(elevation: ButtonStyleButton.allOrNull(0)),
-                        child: const Text(
+                          ).copyWith(elevation: ButtonStyleButton.allOrNull(0)),
+                          child: const Text(
                             'Sign Up',
                             style: TextStyle(
                               color: Colors.white,
@@ -172,7 +173,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                     _FadeScaleTransition(
                       controller: _con8,
                       child: InkWell(
-                        onTap: () => HRoute.go(context, '/home'),
+                        onTap: () => Go.reset(const HomeScreen()),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           mainAxisSize: MainAxisSize.min,
@@ -195,8 +196,9 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
               apiLevel < 31
                   ? AnimatedAlign(
-                      alignment:
-                          !isInit ? Alignment.center : const Alignment(0, -0.65),
+                      alignment: !isInit
+                          ? Alignment.center
+                          : const Alignment(0, -0.65),
                       // top: screenHeight * 0.5 - 125 / 2,
                       // top: !isInit
                       //     ? 0//screenHeight * 0.5 - 125 / 2
@@ -240,7 +242,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               //     ],
               //   ),
               // ),
-
             ],
           ),
         ),
@@ -312,7 +313,7 @@ class ButtonBrand extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
           shadowColor: Colors.red,
-        ).copyWith(elevation:ButtonStyleButton.allOrNull(0)),
+        ).copyWith(elevation: ButtonStyleButton.allOrNull(0)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

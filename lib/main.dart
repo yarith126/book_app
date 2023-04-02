@@ -1,13 +1,13 @@
 import 'dart:io';
 
+import 'package:book_app/utils/route_helper.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'screens/splash_screen.dart';
+import 'views/splash_screen.dart';
 import 'global_variables.dart';
 
 void main() {
@@ -19,6 +19,7 @@ void main() {
   runApp(const MyApp());
 }
 
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -26,42 +27,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      navigatorKey: navigatorKey,
       theme: ThemeData(
         useMaterial3: true,
-        textTheme: GoogleFonts.ralewayTextTheme(),
-
-        // pageTransitionsTheme: PageTransitionsTheme(builders: {
-        // TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-        // TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-        // }),
         primaryColor: Colors.green,
         focusColor: Colors.green,
         primaryTextTheme: TextTheme(labelSmall: TextStyle(fontSize: 25)),
         appBarTheme: AppBarTheme(),
       ),
-      // darkTheme: ThemeData.dark(useMaterial3: true),
       themeMode: ThemeMode.system,
-      // onGenerateInitialRoutes: (route) {
-      //   // if (route == '/deeplink') {
-      //   //   return ?;
-      //   // }
-      //   debugPrint('\x1B[95m ${route} \x1B[0m');
-      //   if (route == '/') {
-      //     return [
-      //       MaterialPageRoute(builder: (_) => SplashScreen()),
-      //       MaterialPageRoute(builder: (_) => HomeScreen()),
-      //     ];
-      //   }
-      //   return [MaterialPageRoute(builder: (_) => HomeScreen())]; //unknown
-      // },
-      // onGenerateRoute: (settings) {
-      //   debugPrint('\x1B[95m ${settings.name} \x1B[0m');
-      //   if (settings.name == '/login') {
-      //     return CupertinoPageRoute(builder: (ctx) => HomeScreen());
-      //   }
-      //   return MaterialPageRoute(builder: (ctx) => HomeScreen());
-      // },
-      // onUnknownRoute: (_) {},
       home: const SplashScreen(),
     );
   }

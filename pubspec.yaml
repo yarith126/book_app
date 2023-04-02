@@ -13,9 +13,10 @@ dependencies:
 
   flutter_launcher_icons: ^0.12.0
   flutter_native_splash: ^2.2.18
+#  flutter_background_service: ^2.4.6
   device_info_plus: ^8.1.0
   cupertino_icons: ^1.0.2
-  google_fonts: ^4.0.3
+#  google_fonts: ^4.0.3
   font_awesome_flutter: ^10.4.0
   outline_search_bar: ^2.3.0
   carousel_slider: ^4.2.1

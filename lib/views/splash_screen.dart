@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:book_app/main.dart' as main;
 import 'package:book_app/utils/route_helper.dart';
-import 'package:book_app/screens/home/home_screen.dart';
-import 'package:book_app/screens/login_screen.dart';
+import 'package:book_app/views/home/home_screen.dart';
+import 'package:book_app/views/login_screen.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen>
     // Sign-in check
     Future.delayed(const Duration(seconds: 3)).then((_) {
       if (!isSignedIn) {
-        HRoute.go(context, '/welcome', TransitionType.none);
+        Go.reset(const WelcomeScreen(), TransitionType.none);
       } else {
         _conScale.forward();
         Future.delayed(const Duration(milliseconds: 200)).then((_) {
